@@ -1,0 +1,31 @@
+{% assign lines = content | newline_to_br | split: '<br />' %}
+{% assign in_code_block = false %}
+{% assign code_content = "" %}
+{% for line in lines %}
+  {% if line contains '<div class="language-' %}
+    {% assign in_code_block = true %}
+    {% assign code_content = line | append: "<br>" %}
+    {% assign language_with_extra = line | split: 'language-' | last | split: '"' | first %}
+    {% assign language_parts = language_with_extra | split: ' ' %}
+    {% assign language = language_parts[0] %}
+  {% elsif line contains '</div>' %}
+    {% assign in_code_block = false %}
+    {% assign code_content = code_content | append: line | append: "<br>" %}
+    <div class="code-block">
+      <div class="code-header">
+        <div class="window-controls">
+          <div class="window-control red"></div>
+          <div class="window-control yellow"></div>
+          <div class="window-control green"></div>
+        </div>
+        <span>{{ language }}</span>
+      </div>
+      {{- code_content -}}
+    </div>    
+    {% assign code_content = "" %}
+  {% elsif in_code_block %}
+    {% assign code_content = code_content | append: line | append: "<br>" %}
+  {% else %}
+    {{- line | newline_to_br | remove: '<br />' }}
+  {% endif %}
+{% endfor %}

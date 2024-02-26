@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<div id="main" class="container-main">
+  {% include writeup-author.html title=page.title authors=page.authors %}
+  <div class="post-body">
+    <section class="page__content e-content" itemprop="text">
+      {% include custom-code-block.html %}
+      {% include page__date.html %}
+    </section>
+  </div>
+</div>

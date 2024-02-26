@@ -1,0 +1,29 @@
+<div class="hero-block">
+    <h1 class="heading-writeup">{{ include.title }}</h1>
+    <div class="team-wrap">
+        <a href="#" onclick="loadPage('/pages/about.html', 'About')" class="team-link w-inline-block">
+            <div class="team-name">
+                {% for author in include.authors %}
+                    <img loading="lazy" sizes="(max-width: 767px) 16px, (max-width: 991px) 2vw, 16px"
+                         src="/images/members/{{ author | downcase | replace: ' ', '_' }}.png" alt="" class="team-avatar" />
+                {% endfor %}
+            </div>
+            <div class="team-by">by</div>
+            <div class="team-authors">
+                {% for author in include.authors %}
+                    <span>{{ author }}</span>
+                    {% unless forloop.last %}, {% endunless %}
+                {% endfor %}
+            </div>
+            <div class="team-icon">
+                <div class="icon-heading w-embed">
+                    <svg enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="#b7ab98">
+                        <g>
+                            <polygon points="6.23,20.23 8,22 18,12 8,2 6.23,3.77 14.46,12" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

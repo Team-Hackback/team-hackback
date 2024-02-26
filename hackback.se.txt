@@ -1,0 +1,35 @@
+FÄRGSCHEMA: https://minhpham.design/
+ORANGE: eb5939 = 235,89,57 = 0.9215686274509804,0.3490196078431373,0.2235294117647059,1
+LJUS: B7AB98
+MÖRKARE: B8AC9980
+SVART: 
+FONT: NudistaSemiBold, kanske NudistaBold eller Avant Garde
+
+LOGO: 
+$ convert -background transparent \
+-fill "#eb5939" -font Anurati-Regular -pointsize 72 label:"H" \
+-fill "#eb5939" -font Anurati-Regular -pointsize 72 label:"ACK" +smush 2 \
+-fill "#b8ac9980" -font Anurati-Regular -pointsize 72 label:"BACK" -smush 4 \
+-trim logo-1.png
+
+$ convert -background transparent \
+-fill "#ff8c2f" -font Anurati-Regular -pointsize 72 label:"HACK" \
+-fill "#eeeeee" -font Anurati-Regular -pointsize 72 label:"BACK" \
++append -trim +repage logo-long.png
+
+$ convert -background transparent \
+-fill "#eb5939" -font Anurati-Regular -pointsize 72 label:"H" \
+-fill "#eb5939" -font Anurati-Regular -pointsize 72 label:"ACK" +smush 2 \
+-fill "#b8ac9980" -font Anurati-Regular -pointsize 72 label:"B" \
+-smush -58 -trim logo-maybe.png
+
+$ convert -background transparent -gravity southwest \
+-fill "#eb5939" -font Anurati-Regular -pointsize 12 label:"H" \
+-fill "#232323" -font Anurati-Regular -pointsize 12 label:"B" \
++smush 4 favicon.png
+
+
+AVATARS: https://getavataaars.com/
+EDIT IMAGES: https://www.photopea.com/
+
+IMAGE FONT (writeups): Press Start 2P (#DDD3C4)
